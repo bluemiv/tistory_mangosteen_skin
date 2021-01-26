@@ -110,10 +110,12 @@
 
       // document ready
       $(document).ready(() => {
+        // 로고 클릭 -> 홈 이동
         $(".blog-logo").click(() => {
           window.location.href = "/";
         });
 
+        // 검색 버튼
         $(".search-btn").click(() => {
           console.log("click");
           $(".search-wrapper").toggle();
