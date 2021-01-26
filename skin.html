@@ -19,9 +19,11 @@
       title="[##_title_##]"
       href="[##_rss_url_##]"
     />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"
       rel="stylesheet"
+      type="text/css"
     />
 
     <!-- CSS -->
@@ -29,70 +31,94 @@
   </head>
   <body id="[##_body_id_##]" class="theme_aqua">
     <s_t3>
-      <div class="container">
-        <!-- Left Container -->
-        <div class="left_container">
-          <!-- LOGO -->
-          <div class="logo_wrapper left_card_item">
-            <h1><a href="[##_blog_link_##]">[##_title_##]</a></h1>
+      <!-- header -->
+      <header role="header">
+        <div class="header-wrapper">
+          <button class="menu-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-list"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+              />
+            </svg>
+          </button>
+
+          <div class="header-menu-wrapper">
+            <h3 class="blog-logo">[##_title_##]</h3>
+            [##_blog_menu_##]
           </div>
 
-          <!-- Category -->
-          <div class="category_wrapper left_card_item">
-            <h6>CATEGORY</h6>
-          </div>
-
-          <!-- Profile -->
-          <div class="profile_wrapper left_card_item">
-            <div class="profile_img_wrap">
-              <img src="[##_image_##]" alt="profile image" />
-            </div>
-          </div>
+          <button class="search-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              />
+            </svg>
+          </button>
         </div>
 
-        <!-- Right Container -->
-        <div class="right_container">
-          <header>[##_blog_menu_##]</header>
-
-          <div class="contents_area">
-            <main></main>
-
-            <div class="sub_menu_area">
-              <!-- Notice -->
-              <div class="notice_wrapper sub_menu_item">
-                <h6>NOTICE</h6>
-              </div>
-
-              <!-- Recent Post -->
-              <div class="recent_post_wrapper sub_menu_item">
-                <h6>RECENT POST</h6>
-              </div>
-
-              <!-- Popular Post -->
-              <div class="popular_post_wrapper sub_menu_item">
-                <h6>POPULAR POST</h6>
-              </div>
-
-              <!-- Recent Comment -->
-              <div class="recent_comment_wrapper sub_menu_item">
-                <h6>RECENT COMMENT</h6>
-              </div>
-
-              <!-- Tag Cloud -->
-              <div class="tag_cloud_wrapper sub_menu_item">
-                <h6>TAG CLOUD</h6>
-              </div>
-
-              <!-- Counter -->
-              <div class="counter_wrapper sub_menu_item">
-                <h6>COUNTER</h6>
-              </div>
+        <!-- 검색 -->
+        <s_sidebar>
+          <s_sidebar_element>
+            <!-- 검색 -->
+            <div class="search-wrapper">
+              <s_search>
+                <input
+                  type="text"
+                  class="search-input"
+                  name="[##_search_name_##]"
+                  value="[##_search_text_##]"
+                  placeholder="Search"
+                  onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"
+                />
+                <button
+                  class="search-enter-btn"
+                  type="button"
+                  onclick="[##_search_onclick_submit_##]"
+                  class="submit"
+                >
+                  SEARCH
+                </button>
+              </s_search>
             </div>
-          </div>
-
-          <footer>Footer</footer>
-        </div>
-      </div>
+          </s_sidebar_element>
+        </s_sidebar>
+        <!-- //검색 -->
+      </header>
+      <!-- //header -->
     </s_t3>
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+      // init
+      $(".search-wrapper").hide();
+
+      // document ready
+      $(document).ready(() => {
+        $(".blog-logo").click(() => {
+          window.location.href = "/";
+        });
+
+        $(".search-btn").click(() => {
+          console.log("click");
+          $(".search-wrapper").toggle();
+        });
+      });
+    </script>
   </body>
 </html>
